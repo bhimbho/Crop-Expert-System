@@ -1,3 +1,8 @@
+<?php
+session_start();
+require_once 'core.php';
+$content = new Content;
+?>
 <!DOCTYPE html>
 <html>
 <head>

@@ -1,5 +1,6 @@
 <?php
 include "includes/header.php";
+$post = $content->get_contents_single($_GET['blog_id']);
 ?>
 <div class="container-fluid mb-5">
 	<div class="row banner">
@@ -15,33 +16,24 @@ include "includes/header.php";
 					<div class="card">
 						<div class="card-body">
 							<div class="row">
+							<?php
+								if($post == NULL) {?>
+									<div class="col-md-8 p-0">
+									<h2>Requested Content doesn't exist!</h2>
+									</div>
+								<?php }
+								else{?>
 								<div class="col-md-12 p-0">
-									<img src="images/background-1.png" alt="blog image" class="" width="100%" height="300px">
+									<img src="images/blog_images/<?= $post->content_image ?>" alt="blog image" class="" width="100%" height="300px">
 								</div>
 								<div class="col-md-12 mt-4">
-									<h4 class="text-uppercase mb-3">how to treat your crop from drying and been eaten by animals</h4>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-									quis nostrud exercitation ullamco. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-									tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-									consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-									cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-									proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-									tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-									consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-									cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-									proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-									tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-									consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-									cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-									proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-									<p class="blog-footer"><span><i class="far fa-calendar"></i> February 19, 2021</span> <span><i class="fas fa-eye"></i> 110 Views</span> <span class="float-right"><i class="fas fa-user"></i> Posted by Admin</span></p>
+									<h4 class="text-uppercase mb-3"><?= $post->title ?></h4>
+									<p><?= $post->content ?></p>
+									<p class="blog-footer"><span><i class="far fa-calendar"></i> <?= $post->date_created ?></span>  <span class="float-right"><i class="fas fa-user"></i> Posted by <?= $post->admin_username ?></span></p>
 								</div>
+								<?php }?>
 							</div>
+							
 						</div>
 					</div>
 				</div>
@@ -51,9 +43,13 @@ include "includes/header.php";
 			<h4 class="text-uppercase">recent posts</h4>
 			<hr style="width: 15%; border: 2px solid #0D1C1E">
 			<ul class="ml-3">
-				<li class=""><a href="">how to treat your crop from drying</a></li>
-				<li class=""><a href="">how to treat your crop from drying and been eaten by animals</a></li>
-				<li class=""><a href="">Use of scarescroll in crops infest treatment</a></li>
+			<?php
+				$recent = $content->recent_content();
+				if(is_array($recent)){
+				foreach ($recent as $recent) {?>
+				
+					<li class=""><a href="view-blog.php?blog_id=<?= $recent->content_id?>"><?= $recent->title?></a></li>
+			<?php }} ?>
 			</ul>
 			<div class="row mt-5">
 				<div class="col-md-10 offset-md-1 sidebar-carousel">
