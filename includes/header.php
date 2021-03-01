@@ -14,3 +14,36 @@ $content = new Content;
 	<link rel="stylesheet" type="text/css" href="css/all.css">
 </head>
 <body>
+	<div class="container-fluid">
+		<div class="row menu fixed-top m-0 px-0">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<nav class="navbar navbar-expand-lg">
+							<a class="navbar-brand text-white font-weight-bold" href="#">Crop Diag</a>
+							<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+								<span class="navbar-toggler-icon"></span>
+							</button>
+
+							<div class="collapse navbar-collapse" id="navbarSupportedContent">
+								<ul class="navbar-nav ml-auto">
+									<li class="nav-item active">
+										<a class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link text-white" href="blogs.php">Blog</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link text-white" href="diagnosis.php">Diagnosis</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link btn btn-light py-1 mt-1" href="blogs.php">Logout</a>
+									</li>
+								</ul>
+							</div>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
