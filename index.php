@@ -13,12 +13,11 @@ include "includes/header.php";
 			<div class="col-md-4">
 				<div class="card">
 				<?php
-					$farmer = new Farmer;
 					if (isset($_POST['login'])) {
 						$email = $_POST['email'];
 						$password = $_POST['password'];
 						if($farmer->login($email, $password)){
-							header('location:blogs.php');
+							// header('location:survey.php');
 						}
 						else{
 							echo "<div class='alert alert-success rounded-0'>Login Failed</div>";
@@ -50,3 +49,4 @@ include "includes/header.php";
 </div>
 </body>
 </html>
+

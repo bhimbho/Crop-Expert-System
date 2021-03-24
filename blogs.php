@@ -1,5 +1,6 @@
 <?php
 include "includes/header.php";
+DB::check();
 ?>
 <div class="container-fluid mb-5 mt-5">
 	<div class="row banner">

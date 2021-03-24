@@ -40,7 +40,7 @@ include 'core.php';
 										$phone = $_POST['phone'];
 										if (trim($password) == trim($cpassword)) {
 											if($farmer->farmer_registration($fname,$lname,$gender,$phone,$address,$email, $password)){
-												echo "<div class='alert alert-success rounded-0'> Registration Successful. Proceed to <a href='login.php'>Login</a></div>";
+												echo "<div class='alert alert-success rounded-0'> Registration Successful. Proceed to <a href='index.php'>Login</a></div>";
 											}
 											else{
 												echo "<div class='alert alert-success rounded-0'>Registration Failed</div>";

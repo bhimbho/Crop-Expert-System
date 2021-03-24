@@ -98,6 +98,13 @@ class DB{
       return filter_var(htmlspecialchars(trim($value)),FILTER_SANITIZE_SPECIAL_CHARS);
     }
 
+    public static function check()
+    {
+      if(!isset($_SESSION['farmer_id'])){
+          header("location:index.php");
+      }
+    }
+
    
 }
 

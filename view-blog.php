@@ -1,5 +1,6 @@
 <?php
 include "includes/header.php";
+DB::check();
 $post = $content->get_contents_single($_GET['blog_id']);
 ?>
 <div class="container-fluid mb-5">
