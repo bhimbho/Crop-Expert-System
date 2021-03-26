@@ -1,5 +1,6 @@
 <?php
 include "includes/header.php";
+DB::check();
 ?>
 <div class="container-fluid mb-5 mt-5">
 	<div class="row banner">
@@ -11,51 +12,45 @@ include "includes/header.php";
 	<div class="row blog-block mt-5">
 		<div class="col-md-8">
 			<div class="row">
+			<?php
+				$contents = $content->get_contents();
+				if(is_array($contents)){
+				foreach ($contents as $contents) {?>
+				
 				<div class="col-md-12 blog-content">
 					<div class="card">
 						<div class="card-body">
 							<div class="row">
 								<div class="col-md-2">
-									<img src="images/background-1.png" alt="blog image" class="img-fluid">
+									<img src="images/blog_images/<?= $contents->content_image?>" alt="blog image" class="img-fluid">
 								</div>
 								<div class="col-md-10">
-									<a href="view-blog.php" class="text-uppercase h5">how to treat your crop from drying and been eaten by animals</a>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-									quis nostrud exercitation ullamco...</p>
-									<p class="blog-footer"><span><i class="far fa-calendar"></i> February 19, 2021</span> <span><i class="fas fa-eye"></i> 110 Views</span> <span class="float-right"><i class="fas fa-user"></i> Posted by Admin</span></p>
+									<a href="view-blog.php?blog_id=<?= $contents->content_id?>" class="text-uppercase h5"><?= $contents->title ?></a>
+									<p><?= substr($contents->content,0,250)." ..."  ?></p>
+									<p class="blog-footer"><span><i class="far fa-calendar"></i> <?= $contents->date_created ?></span> <span><i class="fas fa-eye"></i> 110 Views</span> <span class="float-right"><i class="fas fa-user"></i> <?= $contents->admin_username ?></span></p>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-12 blog-content">
-					<div class="card">
-						<div class="card-body">
-							<div class="row">
-								<div class="col-md-2">
-									<img src="images/background-1.png" alt="blog image" class="img-fluid">
-								</div>
-								<div class="col-md-10">
-									<a href="" class="text-uppercase h5">how to treat your crop from drying and been eaten by animals</a>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-									quis nostrud exercitation ullamco...</p>
-									<p class="blog-footer"><span><i class="far fa-calendar"></i> February 19, 2021</span> <span><i class="fas fa-eye"></i> 110 Views</span> <span class="float-right"><i class="fas fa-user"></i> Posted by Admin</span></p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				<?php }}
+				else{
+					echo "<h3>No Content Yet!</h3>";
+				}
+				?>
 			</div>
 		</div>
 		<div class="col-md-4 blog-sidebar">
 			<h4 class="text-uppercase">recent posts</h4>
 			<hr style="width: 15%; border: 2px solid #0D1C1E">
 			<ul class="ml-3">
-				<li class=""><a href="">how to treat your crop from drying</a></li>
-				<li class=""><a href="">how to treat your crop from drying and been eaten by animals</a></li>
-				<li class=""><a href="">Use of scarescroll in crops infest treatment</a></li>
+			<?php
+			$recent = $content->recent_content();
+			if(is_array($recent)){
+			foreach ($recent as $recent) {?>
+			
+				<li class=""><a href="view-blog.php?blog_id=<?= $recent->content_id?>"><?= $recent->title?></a></li>
+			<?php }} ?>
 			</ul>
 			<div class="row mt-5">
 				<div class="col-md-10 offset-md-1 sidebar-carousel">
