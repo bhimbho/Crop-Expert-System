@@ -1,5 +1,6 @@
 <?php
 include "includes/header.php";
+DB::check();
 ?>
 <div class="container-fluid mt-5">
 	<div class="container p-4 mt-5 pt-5 mb-5">
