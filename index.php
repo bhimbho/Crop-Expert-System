@@ -1,3 +1,4 @@
+
 <?php
 include "includes/header.php";
 ?>
@@ -41,12 +42,4 @@ include "includes/header.php";
 							</div>
 						</form>
 						<p class="text-center" style="font-size: 13px">Don't have an account yet?<a href="register.php" class="font-weight-bold text-dark"> Register Here</a></p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-</body>
-</html>
 
