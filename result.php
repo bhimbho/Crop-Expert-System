@@ -18,7 +18,7 @@ DB::check();
                 </ul>
             </div>
 			<div class="col-md-6">
-				<h3>Question Answered</h3>
+				<h3>Question Answered Now</h3>
                 <table class="table table-bordered">
                     <tr>
                         <th colspan="2">Answer</th>
