@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,6 +41,9 @@
 							<p class="text-center" style="font-size: 13px">Don't have an account yet?<a href="register.php" class="font-weight-bold text-dark"> Register Here</a></p>
 						</div>
 =======
+=======
+
+>>>>>>> 9f4ce37da99549e83e911f2b549f89b9e8ecf81e
 <?php
 include "includes/header.php";
 ?>
@@ -83,6 +87,7 @@ include "includes/header.php";
 							</div>
 						</form>
 						<p class="text-center" style="font-size: 13px">Don't have an account yet?<a href="register.php" class="font-weight-bold text-dark"> Register Here</a></p>
+<<<<<<< HEAD
 >>>>>>> 1ec0b6c0fe0a7e19b6b618c245d78d532b0ebefa
 					</div>
 				</div>
@@ -91,4 +96,6 @@ include "includes/header.php";
 	</div>
 </body>
 </html>
+=======
+>>>>>>> 9f4ce37da99549e83e911f2b549f89b9e8ecf81e
 
