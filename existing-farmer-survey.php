@@ -15,7 +15,8 @@ DB::check();
                 <input type="hidden" name="farmer_id" class="farmer_id" value="<?= $_SESSION['farmer_id'] ?>">
                     <div class="question">
 						<h3 class="text-white ">What Crop Are you interested in knowing about?</h3>
-						<select name="crop_choice" id="crop_choice" class="form-control" required>
+                        <div class="form-group">
+						<select name="crop_choice" id="crop_choice" class="form-control rounded-0" required>
                             <option value="">Select Crop</option>
                             <?php
                                 $crops = $survey->get_all_crops();
@@ -23,12 +24,18 @@ DB::check();
                                 <option value="<?= $crops->crop_id?>"><?= $crops->crop?></option>
                                 <?php }?>
                         </select>
-						<button class="btn btn-primary rounded-0 next">Next</button>
-						<button class="finish">Finish</button>
+                        </div>
+                        <div class="form-group">
+						<button class="btn btn-warning btn-block rounded-0 next">Next</button>
+                        </div>
+                        <div class="form-group">
+						<button class="finish btn btn-warning btn-block rounded-0">Finish</button>
+                        </div>
 					</div>
                     <div class="question">
 						<h3 class="text-white ">What Variety of Cassava seed are you interested in planting?</h3>
-						<select name="seed" id="seed" class="form-control" required>
+                        <div class="form-group">
+						<select name="seed" id="seed" class="form-control rounded-0" required>
                             <option value="">Select Variety</option>
                             <?php
                                 $cassava = $survey->get_all_cassava_varieties();
@@ -36,18 +43,23 @@ DB::check();
                                 <option value="<?= $cassava->cassava_id?>"><?= $cassava->cassava?></option>
                                 <?php }?>
                         </select>
-						<button class="btn btn-primary rounded-0 next">Next</button>
+                        </div>
+                        <div class="form-group">
+						<button class="btn btn-warning btn-block rounded-0 next">Next</button>
+                        </div>
 					</div>
                     <div class="question">
 						<h3 class="text-white ">What Stage of Cassava Planting are you interested?</h3>
-						<select name="stage" id="stage" class="form-control" required>
+                        <div class="form-group">
+						<select name="stage" id="stage" class="form-control rounded" required>
                             <option value="">Select Stage</option>
                                 <option value="0">Pre-Planting</option>
                                 <option value="1">Planting</option>
                                 <option value="2">Post-Planting</option>
                         </select>
-						<button class="btn btn-primary rounded-0 next">Next</button>
-						<button class="finish">Finish</button>
+                        </div>
+						<button class="btn btn-warning btn-block rounded-0 next">Next</button>
+						<button class="finish btn btn-warning btn-block rounded-0">Finish</button>
 					</div>
 				</form>
 			</div>

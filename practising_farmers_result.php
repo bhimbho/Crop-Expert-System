@@ -17,10 +17,10 @@ DB::check();
                     ?>
                 </ul>
             </div> -->
-			
-            <div class="col-md-4">
-				<h3>
-                <?php
+
+            <div class="col-md-12">
+                <h3>
+                    <?php
                     if($pre->stage == 0){
                         echo "Pre-planting Analysis";
                     }
@@ -30,13 +30,15 @@ DB::check();
                     elseif($pre->stage == 2){
                         echo "Post-planting Analysis";
                     }
-                ?>
+                    ?>
                 </h3><hr>
                 <div><?= (isset($pre->solution))?$pre->solution: "Inference Cannot be generated at the moment" ?></div>
-                <a class="btn btn-dark rounded-0 btn-block">Would you like to proceed to Cassava Disease Diagnosis?</a>
-                <a href="expert-system.php" class="btn btn-success">Yes</a>
-                <a href="survey.php" class="btn btn-warning">No</a>
-			</div>
-		</div>
-	</div>
+                <a class="btn btn-dark rounded-0 btn-block mb-3 mt-2">Would you like to proceed to Cassava Disease Diagnosis?</a>
+                <div class="text-right">
+                    <a href="expert-system.php" class="btn btn-success rounded-0" style="width: 10%">Yes</a>
+                    <a href="survey.php" class="btn btn-warning rounded-0" style="width: 10%">No</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
