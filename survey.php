@@ -27,7 +27,7 @@ DB::check();
 									<input type="radio" name="choice" class="choice" value="0" id="" required>No</label>
 								</div>
 								<div class="form-group">
-									<button class="btn btn-warning rounded-0 mx-auto d-block" name="show">Show Me!</button>
+									<button class="btn btn-warning rounded-0 mx-auto d-block show" name="show">Show Me!</button>
 								</div>
 							</div>
 						</form>
