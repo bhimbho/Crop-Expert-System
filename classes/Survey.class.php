@@ -8,10 +8,24 @@ class Survey extends DB
 
     }
 
-    public function survery_answers_save ($farmer_id,$ans1,$ans2,$ans3,$ans4,$ans5,$ans6,$ans7,$ans8){
-        $arr = [$farmer_id,$ans1,$ans2,$ans3,$ans4,$ans5,$ans6,$ans7,$ans8];
+    public function get_all_crops(){
+        $arr =  [];
+        $query = PARENT::queryStatement("SELECT * FROM `crop`", $arr);
+        return PARENT::fALL(); //fetch all
+
+    }
+
+    public function get_all_cassava_varieties(){
+        $arr =  [];
+        $query = PARENT::queryStatement("SELECT * FROM `cassava_varieties`", $arr);
+        return PARENT::fALL(); //fetch all
+
+    }
+
+    public function survery_answers_save ($farmer_id,$ans1,$ans2){
+        $arr = [$farmer_id,$ans1,$ans2];
         
-        $query = PARENT::queryStatement("INSERT INTO survey_answers(`farmer_id`, `ans_1`, `ans_2`, `ans_3`, `ans_4`, `ans_5`, `ans_6`, `ans_7`, `ans_8`, `date_answered`) VALUES (?,?,?,?,?,?,?,?,?,NOW())", $arr);
+        $query = PARENT::queryStatement("INSERT INTO survey_answers(`farmer_id`, `ans_1`, `ans_2`, `date_answered`) VALUES (?,?,?,NOW())", $arr);
         return ($query)? true:false;
     }
 
@@ -33,6 +47,31 @@ class Survey extends DB
 
     }
 
+    public function survey_inference_db($object){
+        $arr = [$object->crop_id, $object->cassva_type];
+        $query = PARENT::queryStatement("SELECT * FROM `survey_solutions` WHERE crop_id = ? AND cassava_type = ? ORDER BY stage ASC", $arr);
+        return PARENT::fALL();
+    }
+
+    // ------------- NEW USER INFERENCE ---------------
+    public function survey_inference_db_preplanting($object){
+        $arr = [$object->ans_1, $object->ans_2,0];
+        $query = PARENT::queryStatement("SELECT * FROM `survey_solutions` WHERE crop_id = ? AND cassava_type = ? AND stage = ?", $arr);
+        return PARENT::f_one();
+    }
+
+    public function survey_inference_db_planting($object){
+        $arr = [$object->ans_1, $object->ans_2,1];
+        $query = PARENT::queryStatement("SELECT * FROM `survey_solutions` WHERE crop_id = ? AND cassava_type = ? AND stage = ?", $arr);
+        return PARENT::f_one();
+    }
+
+    public function survey_inference_db_postplanting($object){
+        $arr = [$object->ans_1, $object->ans_2,2];
+        $query = PARENT::queryStatement("SELECT * FROM `survey_solutions` WHERE crop_id = ? AND cassava_type = ? AND stage = ?", $arr);
+        return PARENT::f_one();
+    }
+    // ------------------END NEW USER INFERENCE ----------------
     public function survey_inference($object){
         $answer = '';
         if($object->ans_1 == 0){

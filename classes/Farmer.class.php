@@ -9,12 +9,13 @@ class Farmer extends DB
             $user_details = PARENT::f_one();
             $_SESSION['farmer_id'] = $user_details->farmer_id;
             $_SESSION['email'] = $user_details->email;
-            if($user_details->new_user_status == NULL){
-                header("location:survey.php");
-            }
-            else{
-                header("location:expert-system.php");
-            }
+            header("location:survey.php");
+            // if($user_details->new_user_status == NULL){
+            //     header("location:survey.php");
+            // }
+            // else{
+            //     header("location:expert-system.php");
+            // }
         }
         else{
             return false;
@@ -30,10 +31,10 @@ class Farmer extends DB
         return ($query)? true:false;
     }
 
-    public function update_farmer_status ($value){
-        $arr = [$value,$_SESSION['farmer_id']];
+    // public function update_farmer_status ($value){
+    //     $arr = [$value,$_SESSION['farmer_id']];
         
-        $query = PARENT::queryStatement("UPDATE farmer SET new_user_status = ? WHERE farmer_id = ?", $arr);
-        return ($query)? true:false;
-    }
+    //     $query = PARENT::queryStatement("UPDATE farmer SET new_user_status = ? WHERE farmer_id = ?", $arr);
+    //     return ($query)? true:false;
+    // }
 }
