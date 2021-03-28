@@ -36,6 +36,15 @@ class Survey extends DB
         return ($query)? true:false;
     }
 
+    public function get_practising_survery_answer(){
+        $arr =  [$_SESSION['farmer_id']];
+        $query = PARENT::queryStatement("SELECT * FROM `survey_practising_farmer_answers` WHERE farmer_id = ? ORDER BY answer_id DESC", $arr);
+        return PARENT::f_one(); //fetch all
+
+    }
+
+    //----------------- end practising farmer -------------------
+
     public function get_survery_answer(){
         $arr =  [$_SESSION['farmer_id']];
         $query = PARENT::queryStatement("SELECT * FROM `survey_answers` WHERE farmer_id = ? ORDER BY answer_id DESC", $arr);
@@ -55,9 +64,9 @@ class Survey extends DB
     }
 
     public function survey_inference_db($object){
-        $arr = [$object->crop_id, $object->cassva_type];
-        $query = PARENT::queryStatement("SELECT * FROM `survey_solutions` WHERE crop_id = ? AND cassava_type = ? ORDER BY stage ASC", $arr);
-        return PARENT::fALL();
+        $arr = [$object->ans_1, $object->ans_2, $object->ans_3];
+        $query = PARENT::queryStatement("SELECT * FROM `survey_solutions` WHERE crop_id = ? AND cassava_type = ? AND stage = ?", $arr);
+        return PARENT::f_one();
     }
 
     // ------------- NEW USER INFERENCE ---------------

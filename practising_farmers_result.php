@@ -1,6 +1,6 @@
 <?php
 include 'includes/header.php';
-$answer = $survey->get_survery_answer();
+$answer = $survey->get_practising_survery_answer();
 // $farmer->update_farmer_status(1);
 DB::check();
 
@@ -13,22 +13,26 @@ DB::check();
                 <ul>
                 
                     <?php
-                        $pre = $survey->survey_inference_db_preplanting($answer);
+                        $pre = $survey->survey_inference_db($answer);
                     ?>
                 </ul>
             </div> -->
-			<div class="col-md-4">
-				<h3>Pre-planting Steps</h3><hr>
-                    <div><?= ($pre->solution)?$pre->solution: "Inference Cannot be generated at the moment" ?></div>
-                    
-			</div>
+			
             <div class="col-md-4">
-				<h3>Planting Steps</h3><hr>
-                <div><?= (isset($planting->solution))?$pre->solution: "Inference Cannot be generated at the moment" ?></div>
-			</div>
-            <div class="col-md-4">
-				<h3>Harvesting/ Post-Planting Steps</h3><hr>
-                <div><?= (isset($post->solution))?$pre->solution: "Inference Cannot be generated at the moment" ?></div>
+				<h3>
+                <?php
+                    if($pre->stage == 0){
+                        echo "Pre-planting Analysis";
+                    }
+                    else if($pre->stage == 1){
+                        echo "Planting Analysis";
+                    }
+                    elseif($pre->stage == 2){
+                        echo "Post-planting Analysis";
+                    }
+                ?>
+                </h3><hr>
+                <div><?= (isset($pre->solution))?$pre->solution: "Inference Cannot be generated at the moment" ?></div>
                 <a class="btn btn-dark rounded-0 btn-block">Would you like to proceed to Cassava Disease Diagnosis?</a>
                 <a href="expert-system.php" class="btn btn-success">Yes</a>
                 <a href="survey.php" class="btn btn-warning">No</a>
