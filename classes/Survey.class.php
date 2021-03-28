@@ -28,6 +28,13 @@ class Survey extends DB
         $query = PARENT::queryStatement("INSERT INTO survey_answers(`farmer_id`, `ans_1`, `ans_2`, `date_answered`) VALUES (?,?,?,NOW())", $arr);
         return ($query)? true:false;
     }
+    // -----------Practising Farmer --------------------
+    public function survery_answers_farmer_save ($farmer_id,$ans1,$ans2,$ans3){
+        $arr = [$farmer_id,$ans1,$ans2,$ans3];
+        
+        $query = PARENT::queryStatement("INSERT INTO survey_practising_farmer_answers(`farmer_id`, `ans_1`, `ans_2`,`ans_3`, `date_answered`) VALUES (?,?,?,?,NOW())", $arr);
+        return ($query)? true:false;
+    }
 
     public function get_survery_answer(){
         $arr =  [$_SESSION['farmer_id']];

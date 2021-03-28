@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 26, 2021 at 09:42 PM
+-- Generation Time: Mar 28, 2021 at 02:44 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.3.1
 
@@ -60,6 +60,31 @@ CREATE TABLE IF NOT EXISTS `answer` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `cassava_varieties`
+--
+
+DROP TABLE IF EXISTS `cassava_varieties`;
+CREATE TABLE IF NOT EXISTS `cassava_varieties` (
+  `cassava_id` int(11) NOT NULL AUTO_INCREMENT,
+  `cassava` varchar(150) NOT NULL,
+  PRIMARY KEY (`cassava_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cassava_varieties`
+--
+
+INSERT INTO `cassava_varieties` (`cassava_id`, `cassava`) VALUES
+(1, 'IBA961632 (Farmer’s Pride)'),
+(2, 'IBA980581 (Dixon)'),
+(3, 'CR36-5 (Ayaya)'),
+(4, 'IBA070593 (Sunshine)'),
+(5, 'IBA980505 (Fine face)'),
+(6, 'TME 419');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `content`
 --
 
@@ -80,6 +105,28 @@ CREATE TABLE IF NOT EXISTS `content` (
 
 INSERT INTO `content` (`content_id`, `title`, `content`, `content_image`, `poster_id`, `date_created`) VALUES
 (2, 'sa', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate corrupti quibusdam corporis ipsum nihil enim sit sequi atque asperiores ullam quod unde error sapiente voluptatum debitis est, molestias qui recusandae.', 'news1.jpg', 1, '2020-04-27');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `crop`
+--
+
+DROP TABLE IF EXISTS `crop`;
+CREATE TABLE IF NOT EXISTS `crop` (
+  `crop_id` int(11) NOT NULL AUTO_INCREMENT,
+  `crop` varchar(100) NOT NULL,
+  PRIMARY KEY (`crop_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `crop`
+--
+
+INSERT INTO `crop` (`crop_id`, `crop`) VALUES
+(1, 'Maize'),
+(2, 'Cassava'),
+(3, 'Rice');
 
 -- --------------------------------------------------------
 
@@ -135,10 +182,10 @@ CREATE TABLE IF NOT EXISTS `farmer` (
 --
 
 INSERT INTO `farmer` (`farmer_id`, `firstname`, `lastname`, `farm_address`, `gender`, `phone`, `email`, `password`, `date_created`, `new_user_status`) VALUES
-(1, 'sina', 'soneye', '6, ikosi', 'male', '89w389', 'advancoplanet@gmail.com', 'db6a25a3cc9ce469ddedf1e12f07f69b', '2021-02-14', 1),
+(1, 'sina', 'soneye', '6, ikosi', 'male', '89w389', 'advancoplanet@gmail.com', 'db6a25a3cc9ce469ddedf1e12f07f69b', '2021-02-14', NULL),
 (9, 'afeez', 'dosu', 'nigeria', 'Male', '3232323', 'afeez@gmail.com', '631f5438242f3abf1228dc6e78b164ce', '2021-03-10', 1),
 (8, 'afeez', 'dosu', 'nigeria', 'Male', '98912891', 'afeez@gmail.com', 'afeez', '2021-03-10', NULL),
-(7, 'Soneye', 'Oluwasina', 'saaad', 'Male', '8487008706', 'advancoplanet@gmail.com', 'richiehortiz', '2021-02-21', 1);
+(7, 'Soneye', 'Oluwasina', 'saaad', 'Male', '8487008706', 'advancoplanet@gmail.com', 'richiehortiz', '2021-02-21', NULL);
 
 -- --------------------------------------------------------
 
@@ -193,29 +240,89 @@ CREATE TABLE IF NOT EXISTS `survey_answers` (
   `farmer_id` int(11) NOT NULL,
   `ans_1` int(11) DEFAULT NULL,
   `ans_2` int(11) DEFAULT NULL,
-  `ans_3` int(11) DEFAULT NULL,
-  `ans_4` int(11) DEFAULT NULL,
-  `ans_5` int(11) DEFAULT NULL,
-  `ans_6` int(11) DEFAULT NULL,
-  `ans_7` int(11) DEFAULT NULL,
-  `ans_8` int(11) DEFAULT NULL,
   `date_answered` datetime NOT NULL,
   PRIMARY KEY (`answer_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `survey_answers`
 --
 
-INSERT INTO `survey_answers` (`answer_id`, `farmer_id`, `ans_1`, `ans_2`, `ans_3`, `ans_4`, `ans_5`, `ans_6`, `ans_7`, `ans_8`, `date_answered`) VALUES
-(1, 1, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-08 07:30:36'),
-(2, 1, 1, 1, 0, 0, 1, 1, 0, 1, '2021-03-08 08:05:40'),
-(3, 1, 1, 0, 1, 0, 1, 0, 0, 1, '2021-03-08 09:29:11'),
-(4, 1, 0, 0, 1, 0, 1, 0, 1, 1, '2021-03-08 09:30:32'),
-(5, 1, 1, 0, 1, 1, 0, 1, 1, 1, '2021-03-08 15:41:04'),
-(6, 1, 1, 0, 1, 1, 0, 1, 1, 1, '2021-03-08 15:41:07'),
-(7, 1, 1, 0, 1, 1, 0, 1, 1, 1, '2021-03-08 15:41:57'),
-(8, 9, 0, 1, 1, 0, 0, 1, 1, 1, '2021-03-10 23:22:55');
+INSERT INTO `survey_answers` (`answer_id`, `farmer_id`, `ans_1`, `ans_2`, `date_answered`) VALUES
+(1, 1, 1, 1, '2021-03-08 07:30:36'),
+(2, 1, 1, 1, '2021-03-08 08:05:40'),
+(3, 1, 1, 0, '2021-03-08 09:29:11'),
+(4, 1, 0, 0, '2021-03-08 09:30:32'),
+(5, 1, 1, 0, '2021-03-08 15:41:04'),
+(6, 1, 1, 0, '2021-03-08 15:41:07'),
+(7, 1, 1, 0, '2021-03-08 15:41:57'),
+(8, 9, 0, 1, '2021-03-10 23:22:55'),
+(9, 1, 1, 1, '2021-03-27 14:34:41'),
+(10, 1, 1, 1, '2021-03-27 14:45:09'),
+(20, 1, 2, 1, '2021-03-28 15:18:54'),
+(19, 1, 2, 1, '2021-03-28 14:53:18'),
+(18, 1, 2, 4, '2021-03-28 14:15:06'),
+(17, 1, 2, 1, '2021-03-28 14:02:34');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `survey_practising_farmer_answers`
+--
+
+DROP TABLE IF EXISTS `survey_practising_farmer_answers`;
+CREATE TABLE IF NOT EXISTS `survey_practising_farmer_answers` (
+  `answer_id` int(11) NOT NULL AUTO_INCREMENT,
+  `farmer_id` int(11) NOT NULL,
+  `ans_1` int(11) DEFAULT NULL,
+  `ans_2` int(11) DEFAULT NULL,
+  `ans_3` int(11) NOT NULL,
+  `date_answered` datetime NOT NULL,
+  PRIMARY KEY (`answer_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `survey_practising_farmer_answers`
+--
+
+INSERT INTO `survey_practising_farmer_answers` (`answer_id`, `farmer_id`, `ans_1`, `ans_2`, `ans_3`, `date_answered`) VALUES
+(1, 1, 1, 1, 0, '2021-03-08 07:30:36'),
+(2, 1, 1, 1, 0, '2021-03-08 08:05:40'),
+(3, 1, 1, 0, 0, '2021-03-08 09:29:11'),
+(4, 1, 0, 0, 0, '2021-03-08 09:30:32'),
+(5, 1, 1, 0, 0, '2021-03-08 15:41:04'),
+(6, 1, 1, 0, 0, '2021-03-08 15:41:07'),
+(7, 1, 1, 0, 0, '2021-03-08 15:41:57'),
+(8, 9, 0, 1, 0, '2021-03-10 23:22:55'),
+(9, 1, 1, 1, 0, '2021-03-27 14:34:41'),
+(10, 1, 1, 1, 0, '2021-03-27 14:45:09'),
+(20, 1, 2, 1, 0, '2021-03-28 15:18:54'),
+(19, 1, 2, 1, 0, '2021-03-28 14:53:18'),
+(18, 1, 2, 4, 0, '2021-03-28 14:15:06'),
+(17, 1, 2, 1, 0, '2021-03-28 14:02:34');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `survey_solutions`
+--
+
+DROP TABLE IF EXISTS `survey_solutions`;
+CREATE TABLE IF NOT EXISTS `survey_solutions` (
+  `solution_id` int(11) NOT NULL AUTO_INCREMENT,
+  `crop_id` int(11) NOT NULL,
+  `cassava_type` int(11) NOT NULL,
+  `stage` int(11) NOT NULL,
+  `solution` longtext NOT NULL,
+  PRIMARY KEY (`solution_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `survey_solutions`
+--
+
+INSERT INTO `survey_solutions` (`solution_id`, `crop_id`, `cassava_type`, `stage`, `solution`) VALUES
+(1, 2, 1, 0, 'sdddddddddd');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

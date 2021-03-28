@@ -39,14 +39,12 @@ DB::check();
 						<button class="btn btn-primary rounded-0 next">Next</button>
 					</div>
                     <div class="question">
-						<h3 class="text-white ">What Variety of Cassava seed are you interested in planting?</h3>
-						<select name="seed" id="seed" class="form-control" required>
-                            <option value="">Select Variety</option>
-                            <?php
-                                $cassava = $survey->get_all_cassava_varieties();
-                                foreach ($cassava as $cassava) {?>
-                                <option value="<?= $cassava->cassava_id?>"><?= $cassava->cassava?></option>
-                                <?php }?>
+						<h3 class="text-white ">What Stage of Cassava Planting are you interested?</h3>
+						<select name="stage" id="stage" class="form-control" required>
+                            <option value="">Select Stage</option>
+                                <option value="0">Pre-Planting</option>
+                                <option value="1">Planting</option>
+                                <option value="2">Post-Planting</option>
                         </select>
 						<button class="btn btn-primary rounded-0 next">Next</button>
 						<button class="finish">Finish</button>
@@ -75,6 +73,12 @@ include "includes/footer.php";
                     nextDiv.last().index()++;
                     x--;
                 }
+                if(x == 1 && $('#seed').val() == ""){
+                    alert("No option selected");
+                    $('.question').length = $('.question').length--;
+                    nextDiv.last().index()++;
+                    x--;
+                }
                 var nextDiv = $(".question:visible").next(".question");
                 x++;
                 if (nextDiv.length == 0) {
@@ -91,8 +95,8 @@ include "includes/footer.php";
         $('.finish').click(function(e){
             
             e.preventDefault();
-            if(x == 1 && $('#seed').val() == ""){
-                    alert("Do something");
+            if(x == 2 && $('#stage').val() == ""){
+                    alert("It's Crucial you select a planting stage");
                     $('.question').length = $('.question').length--;
                     nextDiv.last().index()++;
                     x--;
@@ -100,19 +104,21 @@ include "includes/footer.php";
             else{
                 var crop_choice = $('#crop_choice').val();
                 var seed = $('#seed').val();
+                var stage = $('#stage').val();
                 var farmer_id=$('.farmer_id').val()
                 answer.push(crop_choice);
                 answer.push(seed);
+                answer.push(stage);
                             
                 // console.log(arr);
                         
                 $.ajax({
                     type: 'post',
-                    url: 'api/survey-question-save.php',
+                    url: 'api/survey-question-farmer-save.php',
                     data: {answer:answer, farmer_id:farmer_id},
                     success:function(response){
                         // console.log(response);
-                        window.location.href= 'result.php';
+                        window.location.href= 'practising_farmers_result.php';
                     }
 
                 });
