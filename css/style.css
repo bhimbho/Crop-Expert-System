@@ -68,6 +68,12 @@ p.blog-footer{
 	background-size: cover;
 	background-position: center;
 }
-.expert form button{
+.expert .show{
 	width: 48% !important;
+}
+.planting, .post-planting{
+	display: none;
+}
+.pre-planting, .planting, .post-planting{
+	min-height: 25em;
 }
