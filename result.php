@@ -26,11 +26,11 @@ DB::check();
 			</div>
             <div class="col-md-4">
 				<h3>Planting Steps</h3><hr>
-                <div><?= (isset($planting->solution))?$pre->solution: "Inference Cannot be generated at the moment" ?></div>
+                <div><?= (isset($planting->solution))?$planting->solution: "Inference Cannot be generated at the moment" ?></div>
 			</div>
             <div class="col-md-4">
 				<h3>Harvesting/ Post-Planting Steps</h3><hr>
-                <div><?= (isset($post->solution))?$pre->solution: "Inference Cannot be generated at the moment" ?></div>
+                <div><?= (isset($post->solution))?$post->solution: "Inference Cannot be generated at the moment" ?></div>
                 <a class="btn btn-dark rounded-0 btn-block">Would you like to proceed to Cassava Disease Diagnosis?</a>
                 <a href="expert-system.php" class="btn btn-success">Yes</a>
                 <a href="survey.php" class="btn btn-warning">No</a>
