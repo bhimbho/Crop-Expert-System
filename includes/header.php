@@ -4,6 +4,7 @@ require_once 'core.php';
 $content = new Content;
 $survey = new Survey;
 $farmer = new Farmer;
+$disease = new Disease;
 ?>
 <!DOCTYPE html>
 <html>
