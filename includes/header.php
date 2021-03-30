@@ -23,7 +23,7 @@ $disease = new Disease;
 				<div class="row">
 					<div class="col-md-12">
 						<nav class="navbar navbar-expand-lg">
-							<a class="navbar-brand text-white font-weight-bold" href="expert-system.php">Crop Diag</a>
+							<a class="navbar-brand text-white font-weight-bold" href="disease_list.php">Crop Diag</a>
 							<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 								<span class="navbar-toggler-icon"></span>
 							</button>
@@ -31,7 +31,7 @@ $disease = new Disease;
 							<div class="collapse navbar-collapse" id="navbarSupportedContent">
 								<ul class="navbar-nav ml-auto">
 									<li class="nav-item active">
-										<a class="nav-link text-white" href="expert-system.php">Home <span class="sr-only">(current)</span></a>
+										<a class="nav-link text-white" href="disease_list.php">Home <span class="sr-only">(current)</span></a>
 									</li>
 									<li class="nav-item">
 										<a class="nav-link text-white" href="blogs.php">Expert Corner</a>

@@ -14,7 +14,7 @@ DB::check();
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-header">
-                                <a href="/expert-system.php?disease=<?= $all_disease->disease_id ?>"><span class="badge badge-success"><?= $all_disease->disease ?></span></a>
+                                <a href="expert-system.php?disease=<?= $all_disease->disease_id ?>"><span class="badge badge-success"><?= $all_disease->disease ?></span></a>
                             </div>
                             <div class="card-body">
                                 <img src="images/disease/<?= $all_disease->image ?>" class="img-fluid">

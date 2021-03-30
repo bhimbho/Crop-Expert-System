@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 28, 2021 at 02:44 PM
+-- Generation Time: Mar 30, 2021 at 10:27 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.3.1
 
@@ -131,6 +131,31 @@ INSERT INTO `crop` (`crop_id`, `crop`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `disease`
+--
+
+DROP TABLE IF EXISTS `disease`;
+CREATE TABLE IF NOT EXISTS `disease` (
+  `disease_id` int(11) NOT NULL AUTO_INCREMENT,
+  `image` varchar(150) NOT NULL,
+  `disease` varchar(255) NOT NULL,
+  PRIMARY KEY (`disease_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `disease`
+--
+
+INSERT INTO `disease` (`disease_id`, `image`, `disease`) VALUES
+(1, 'cmd.jpg', 'Cassava Mosaic Disease'),
+(2, 'tbr_rot.jpg', 'Tuber rot '),
+(3, 'brwn_leaf.jpg', 'Brown leaf spot'),
+(4, 'blight.jpg', 'Bacterial Blight'),
+(5, 'dieback.jpg', '\r\nDieback (withertip)');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `expert_questions`
 --
 
@@ -138,6 +163,7 @@ DROP TABLE IF EXISTS `expert_questions`;
 CREATE TABLE IF NOT EXISTS `expert_questions` (
   `question_id` int(11) NOT NULL AUTO_INCREMENT,
   `question` text NOT NULL,
+  `disease_id` int(11) NOT NULL,
   PRIMARY KEY (`question_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
@@ -145,16 +171,16 @@ CREATE TABLE IF NOT EXISTS `expert_questions` (
 -- Dumping data for table `expert_questions`
 --
 
-INSERT INTO `expert_questions` (`question_id`, `question`) VALUES
-(1, 'Is your suitable farming space sandy loam that is well-drained without a fluctuating water table?\r\n'),
-(2, 'Is the land space prepared using burning method?\r\n'),
-(3, 'Are you within the month of March to June?\r\n'),
-(4, 'If the last question is no, Are you within the month of October to December?\r\n'),
-(5, 'Are you planning to plant during dry season?\r\n'),
-(6, 'Do you plan to reuse stem cut from last planting season?\r\n'),
-(7, 'Is your ridges or mounds should be at least 0.75m-1m apart?'),
-(8, 'Is your stem cutting from plants 8-18months old?'),
-(9, '   ');
+INSERT INTO `expert_questions` (`question_id`, `question`, `disease_id`) VALUES
+(1, 'Does young leaves have chlorotic speck?', 1),
+(2, 'Are the chlorotic speck enlarged and intermixed with green tissue to provide a mosaic pattern?', 1),
+(3, 'Do you notice pale discoloration like intensified to yellow colour?', 1),
+(4, 'Is there an reduction in leaf area? ', 1),
+(5, 'Do you notice leaf distortion and shoe string appearance?', 1),
+(6, 'Is the cassava growth affected?', 1),
+(7, 'Is the season humid or rainy?', 1),
+(8, 'Does your cassava plant look anything like the image below? <img class=\"img-fluid\" src=\"images/disease/cmd.jpg\" alt=\"\">', 1),
+(9, '   ', 0);
 
 -- --------------------------------------------------------
 
@@ -197,6 +223,7 @@ DROP TABLE IF EXISTS `questions`;
 CREATE TABLE IF NOT EXISTS `questions` (
   `question_id` int(11) NOT NULL AUTO_INCREMENT,
   `question` text NOT NULL,
+  `disease_id` int(11) NOT NULL,
   PRIMARY KEY (`question_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
@@ -204,16 +231,16 @@ CREATE TABLE IF NOT EXISTS `questions` (
 -- Dumping data for table `questions`
 --
 
-INSERT INTO `questions` (`question_id`, `question`) VALUES
-(1, 'Is your suitable farming space sandy loam that is well-drained without a fluctuating water table?\r\n'),
-(2, 'Is the land space prepared using burning method?\r\n'),
-(3, 'Are you within the month of March to June?\r\n'),
-(4, 'If the last question is no, Are you within the month of October to December?\r\n'),
-(5, 'Are you planning to plant during dry season?\r\n'),
-(6, 'Do you plan to reuse stem cut from last planting season?\r\n'),
-(7, 'Is your ridges or mounds should be at least 0.75m-1m apart?'),
-(8, 'Is your stem cutting from plants 8-18months old?'),
-(9, '   ');
+INSERT INTO `questions` (`question_id`, `question`, `disease_id`) VALUES
+(1, 'Is your suitable farming space sandy loam that is well-drained without a fluctuating water table?\r\n', 0),
+(2, 'Is the land space prepared using burning method?\r\n', 0),
+(3, 'Are you within the month of March to June?\r\n', 0),
+(4, 'If the last question is no, Are you within the month of October to December?\r\n', 0),
+(5, 'Are you planning to plant during dry season?\r\n', 0),
+(6, 'Do you plan to reuse stem cut from last planting season?\r\n', 0),
+(7, 'Is your ridges or mounds should be at least 0.75m-1m apart?', 0),
+(8, 'Is your stem cutting from plants 8-18months old?', 0),
+(9, '   ', 0);
 
 -- --------------------------------------------------------
 
@@ -224,9 +251,17 @@ INSERT INTO `questions` (`question_id`, `question`) VALUES
 DROP TABLE IF EXISTS `solution`;
 CREATE TABLE IF NOT EXISTS `solution` (
   `solution_id` int(11) NOT NULL AUTO_INCREMENT,
-  `solution` text NOT NULL,
+  `solution` longtext NOT NULL,
+  `disease_id` int(11) NOT NULL,
   PRIMARY KEY (`solution_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `solution`
+--
+
+INSERT INTO `solution` (`solution_id`, `solution`, `disease_id`) VALUES
+(1, 'Cassava mosaic disease\r\nA severel mosaic disease was recognized as a serious threat to cassava cultivation in India as early as 1942. The first report on this disease was made by Alagianagalingam and Ramakrishnan (1966)\r\nAfrican cassava mosaic disease reported by Walburg in 1984 occurs in African countries ad West Pacific islands ( Lozano and Booth 1976). There are six different viruses recorded causing mosaic symptoms on cassava.\r\nSymptomatology\r\nThe first symptom appear on young leaves as chlorotic speck. Grandually they enlarge and intermix with green tissue to provide a mosaic pattern The pale discoloration may be intensified to yellow colour depending on the varieties. The leaf area is reduced and in extreme cases leaf distortion and shoe string appearance are observed. Intensity of symptoms varies with season. During humid cool and raining stage. the symptoms eepression reduced. There may be symptom variation in the same plant. In serve case of infection, the growth of the plant is affected which ultimately leads to crop loss\r\nDisease index\r\nThe severity of the disease is assessed by using the following  scale\r\nGrade 1- Only specks < 100 sq.mm\r\nGrade 2.- wide areas of mosaic, no distortion\r\nGrade 3 –Distortion, leaf area reduction 25 %\r\nGrade 4-Distortion, leaf area reduction 25-75%\r\nGrade 5-Distortion leaf area redction >75 %\r\nMaximum intensity of the disease is observed during August –October', 1);
 
 -- --------------------------------------------------------
 
@@ -242,7 +277,7 @@ CREATE TABLE IF NOT EXISTS `survey_answers` (
   `ans_2` int(11) DEFAULT NULL,
   `date_answered` datetime NOT NULL,
   PRIMARY KEY (`answer_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `survey_answers`
@@ -259,10 +294,15 @@ INSERT INTO `survey_answers` (`answer_id`, `farmer_id`, `ans_1`, `ans_2`, `date_
 (8, 9, 0, 1, '2021-03-10 23:22:55'),
 (9, 1, 1, 1, '2021-03-27 14:34:41'),
 (10, 1, 1, 1, '2021-03-27 14:45:09'),
+(23, 1, 2, 1, '2021-03-28 16:42:06'),
+(22, 1, 2, 1, '2021-03-28 16:14:14'),
+(21, 1, 2, 1, '2021-03-28 15:57:01'),
 (20, 1, 2, 1, '2021-03-28 15:18:54'),
 (19, 1, 2, 1, '2021-03-28 14:53:18'),
 (18, 1, 2, 4, '2021-03-28 14:15:06'),
-(17, 1, 2, 1, '2021-03-28 14:02:34');
+(17, 1, 2, 1, '2021-03-28 14:02:34'),
+(24, 1, NULL, NULL, '2021-03-28 18:38:04'),
+(25, 1, NULL, NULL, '2021-03-28 18:40:08');
 
 -- --------------------------------------------------------
 
@@ -279,27 +319,18 @@ CREATE TABLE IF NOT EXISTS `survey_practising_farmer_answers` (
   `ans_3` int(11) NOT NULL,
   `date_answered` datetime NOT NULL,
   PRIMARY KEY (`answer_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `survey_practising_farmer_answers`
 --
 
 INSERT INTO `survey_practising_farmer_answers` (`answer_id`, `farmer_id`, `ans_1`, `ans_2`, `ans_3`, `date_answered`) VALUES
-(1, 1, 1, 1, 0, '2021-03-08 07:30:36'),
-(2, 1, 1, 1, 0, '2021-03-08 08:05:40'),
-(3, 1, 1, 0, 0, '2021-03-08 09:29:11'),
-(4, 1, 0, 0, 0, '2021-03-08 09:30:32'),
-(5, 1, 1, 0, 0, '2021-03-08 15:41:04'),
-(6, 1, 1, 0, 0, '2021-03-08 15:41:07'),
-(7, 1, 1, 0, 0, '2021-03-08 15:41:57'),
-(8, 9, 0, 1, 0, '2021-03-10 23:22:55'),
-(9, 1, 1, 1, 0, '2021-03-27 14:34:41'),
-(10, 1, 1, 1, 0, '2021-03-27 14:45:09'),
-(20, 1, 2, 1, 0, '2021-03-28 15:18:54'),
-(19, 1, 2, 1, 0, '2021-03-28 14:53:18'),
-(18, 1, 2, 4, 0, '2021-03-28 14:15:06'),
-(17, 1, 2, 1, 0, '2021-03-28 14:02:34');
+(1, 1, 2, 1, 0, '2021-03-28 15:51:38'),
+(2, 1, 2, 1, 0, '2021-03-28 15:57:31'),
+(3, 1, 2, 1, 0, '2021-03-28 16:15:47'),
+(4, 1, 2, 1, 0, '2021-03-28 16:43:37'),
+(5, 1, 2, 1, 0, '2021-03-28 17:18:15');
 
 -- --------------------------------------------------------
 
