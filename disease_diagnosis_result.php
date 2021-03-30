@@ -29,8 +29,9 @@ DB::check();
                     $disease_name =$disease->get_specific_disease($_SESSION['disease_id'])->disease;
                 ?>
                 <div class="row">
-                    <div class="col-md-4">
-                    <div style="border-radius: 50% 50%; border: 1px solid; text-align: center; height: 50px;"><span style="font-weight: 1000"><?= $div ?></span></div>
+                    <div class="col-md-4 d-flex flex-column align-items-center text-center pt-4">
+                    <div class="h1 d-flex justify-content-center align-items-center" style="border-radius: 50%; border: 2px solid black; text-align: center; height: 100px; width: 100px"><span style="font-weight: 1000"><?= $div ?></span>
+                    </div>
                         <?php
                             if($div <= 35 and $div>=0){?>
                                 <p>Your assumption score seems a little to be tagged <span class='font-weight-bold'><?= $disease_name?></span>, but if you're sure it is check result to the right. Else here are list of other disease that we think your crop might be experiencing</p>
@@ -52,7 +53,7 @@ DB::check();
                             <?php }
                         ?>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-8">
                     <h3>Knowledge Base Inference Generated</h3><hr>
                         <div><?= ($disease->get_disease_solution($_SESSION['disease_id']))?$disease->get_disease_solution($_SESSION['disease_id'])->solution: "Inference Cannot be generated at the moment" ?></div>
                     </div>
