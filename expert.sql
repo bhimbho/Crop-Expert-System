@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 30, 2021 at 10:27 PM
+-- Generation Time: Mar 31, 2021 at 06:34 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.3.1
 
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `administrator` (
 --
 
 INSERT INTO `administrator` (`admin_id`, `admin_username`, `admin_password`) VALUES
-(1, 'admin', 'admin');
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3');
 
 -- --------------------------------------------------------
 
@@ -92,19 +92,21 @@ DROP TABLE IF EXISTS `content`;
 CREATE TABLE IF NOT EXISTS `content` (
   `content_id` int(11) NOT NULL AUTO_INCREMENT,
   `title` text NOT NULL,
-  `content` text NOT NULL,
+  `content` longtext NOT NULL,
   `content_image` varchar(150) NOT NULL,
   `poster_id` int(11) NOT NULL,
   `date_created` date NOT NULL,
   PRIMARY KEY (`content_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `content`
 --
 
 INSERT INTO `content` (`content_id`, `title`, `content`, `content_image`, `poster_id`, `date_created`) VALUES
-(2, 'sa', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate corrupti quibusdam corporis ipsum nihil enim sit sequi atque asperiores ullam quod unde error sapiente voluptatum debitis est, molestias qui recusandae.', 'news1.jpg', 1, '2020-04-27');
+(5, ' TRANSFER: Harry Kane cost beyond ManUtd\'s Budget', '', '2086369.jpg', 1, '2021-03-31'),
+(8, 'Beckham weight in on Messi, Ronaldo debate: Messi a level above Ronaldo in class of his own', '<h2>Definition and Usage</h2>\r\n\r\n<p>The in_array() function searches an array for a specific value.</p>\r\n\r\n<p><strong>Note:</strong>&nbsp;If the search parameter is a string and the type parameter is set to TRUE, the search is case-sensitive.</p>\r\n', '1860351.jpeg', 1, '2021-03-31'),
+(9, ' 8 Big firms discuss 11,000 layoffs', '<p>Lorem&nbsp;ipsum&nbsp;dolor&nbsp;sit&nbsp;amet&nbsp;consectetur&nbsp;adipisicing&nbsp;elit.&nbsp;Id&nbsp;nesciunt&nbsp;sed&nbsp;quam.&nbsp;Maiores&nbsp;repudiandae&nbsp;in&nbsp;ducimus&nbsp;officia,&nbsp;ex&nbsp;nobis&nbsp;a&nbsp;veritatis&nbsp;corrupti&nbsp;magnam&nbsp;dolor&nbsp;nihil!&nbsp;Magnam&nbsp;neque&nbsp;facere&nbsp;explicabo&nbsp;officiis!&nbsp;Lorem&nbsp;ipsum&nbsp;dolor&nbsp;sit&nbsp;amet&nbsp;consectetur&nbsp;adipisicing&nbsp;elit.&nbsp;Id&nbsp;nesciunt&nbsp;sed&nbsp;quam.&nbsp;Maiores&nbsp;repudiandae&nbsp;in&nbsp;ducimus&nbsp;officia,&nbsp;ex&nbsp;nobis&nbsp;a&nbsp;veritatis&nbsp;corrupti&nbsp;magnam&nbsp;dolor&nbsp;nihil!&nbsp;Magnam&nbsp;neque&nbsp;facere&nbsp;explicabo&nbsp;officiis!Lorem&nbsp;ipsum&nbsp;dolor&nbsp;sit&nbsp;amet&nbsp;consectetur&nbsp;adipisicing&nbsp;elit.&nbsp;Id&nbsp;nesciunt&nbsp;sed&nbsp;quam.&nbsp;Maiores&nbsp;repudiandae&nbsp;in&nbsp;ducimus&nbsp;officia,&nbsp;ex&nbsp;nobis&nbsp;a&nbsp;veritatis&nbsp;corrupti&nbsp;magnam&nbsp;dolor&nbsp;nihil!&nbsp;Magnam&nbsp;neque&nbsp;facere&nbsp;explicabo&nbsp;officiis!Lorem&nbsp;ipsum&nbsp;dolor&nbsp;sit&nbsp;amet&nbsp;consectetur&nbsp;adipisicing&nbsp;elit.&nbsp;Id&nbsp;nesciunt&nbsp;sed&nbsp;quam.&nbsp;Maiores&nbsp;repudiandae&nbsp;in&nbsp;ducimus&nbsp;officia,&nbsp;ex&nbsp;nobis&nbsp;a&nbsp;veritatis&nbsp;corrupti&nbsp;magnam&nbsp;dolor&nbsp;nihil!&nbsp;Magnam&nbsp;neque&nbsp;facere&nbsp;explicabo&nbsp;officiis!&nbsp;Lorem&nbsp;ipsum&nbsp;dolor&nbsp;sit&nbsp;amet&nbsp;consectetur&nbsp;adipisicing&nbsp;elit.&nbsp;Id&nbsp;nesciunt&nbsp;sed&nbsp;quam.&nbsp;Maiores&nbsp;repudiandae&nbsp;in&nbsp;ducimus&nbsp;officia,&nbsp;ex&nbsp;nobis&nbsp;a&nbsp;veritatis&nbsp;corrupti&nbsp;magnam&nbsp;dolor&nbsp;nihil!&nbsp;Magnam&nbsp;neque&nbsp;facere&nbsp;explicabo&nbsp;officiis!Lorem&nbsp;ipsum&nbsp;dolor&nbsp;sit&nbsp;amet&nbsp;consectetur&nbsp;adipisicing&nbsp;elit.&nbsp;Id&nbsp;nesciunt&nbsp;sed&nbsp;quam.&nbsp;Maiores&nbsp;repudiandae&nbsp;in&nbsp;ducimus&nbsp;officia,&nbsp;ex&nbsp;nobis&nbsp;a&nbsp;veritatis&nbsp;corrupti&nbsp;magnam&nbsp;dolor&nbsp;nihil!&nbsp;Magnam&nbsp;neque&nbsp;facere&nbsp;explicabo&nbsp;officiis!Lorem&nbsp;ipsum&nbsp;dolor&nbsp;sit&nbsp;amet&nbsp;consectetur&nbsp;adipisicing&nbsp;elit.&nbsp;Id&nbsp;nesciunt&nbsp;sed&nbsp;quam.&nbsp;Maiores&nbsp;repudiandae&nbsp;in&nbsp;ducimus&nbsp;officia,&nbsp;ex&nbsp;nobis&nbsp;a&nbsp;veritatis&nbsp;corrupti&nbsp;magnam&nbsp;dolor&nbsp;nihil!&nbsp;Magnam&nbsp;neque&nbsp;facere&nbsp;explicabo&nbsp;officiis!&nbsp;Lorem&nbsp;ipsum&nbsp;dolor&nbsp;sit&nbsp;amet&nbsp;consectetur&nbsp;adipisicing&nbsp;elit.&nbsp;Id&nbsp;nesciunt&nbsp;sed&nbsp;quam.&nbsp;Maiores&nbsp;repudiandae&nbsp;in&nbsp;ducimus&nbsp;officia,&nbsp;ex&nbsp;nobis&nbsp;a&nbsp;veritatis&nbsp;corrupti&nbsp;magnam&nbsp;dolor&nbsp;nihil!&nbsp;Magnam&nbsp;neque&nbsp;facere&nbsp;explicabo&nbsp;officiis!Lorem&nbsp;ipsum&nbsp;dolor&nbsp;sit&nbsp;amet&nbsp;consectetur&nbsp;adipisicing&nbsp;elit.&nbsp;Id&nbsp;nesciunt&nbsp;sed&nbsp;quam.&nbsp;Maiores&nbsp;repudiandae&nbsp;in&nbsp;ducimus&nbsp;officia,&nbsp;ex&nbsp;nobis&nbsp;a&nbsp;veritatis&nbsp;corrupti&nbsp;magnam&nbsp;dolor&nbsp;nihil!&nbsp;Magnam&nbsp;neque&nbsp;facere&nbsp;explicabo&nbsp;officiis!Lorem&nbsp;ipsum&nbsp;dolor&nbsp;sit&nbsp;amet&nbsp;consectetur&nbsp;adipisicing&nbsp;elit.&nbsp;Id&nbsp;nesciunt&nbsp;sed&nbsp;quam.&nbsp;Maiores&nbsp;repudiandae&nbsp;in&nbsp;ducimus&nbsp;officia,&nbsp;ex&nbsp;nobis&nbsp;a&nbsp;veritatis&nbsp;corrupti&nbsp;magnam&nbsp;dolor&nbsp;nihil!&nbsp;Magnam&nbsp;neque&nbsp;facere&nbsp;explicabo&nbsp;officiis!</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Lorem&nbsp;ipsum&nbsp;dolor&nbsp;sit&nbsp;amet&nbsp;consectetur&nbsp;adipisicing&nbsp;elit.&nbsp;Id&nbsp;nesciunt&nbsp;sed&nbsp;quam.&nbsp;Maiores&nbsp;repudiandae&nbsp;in&nbsp;ducimus&nbsp;officia,&nbsp;ex&nbsp;nobis&nbsp;a&nbsp;veritatis&nbsp;corrupti&nbsp;magnam&nbsp;dolor&nbsp;nihil!&nbsp;Magnam&nbsp;neque&nbsp;facere&nbsp;explicabo&nbsp;officiis!</p>\r\n', '1046122.jpg', 1, '2021-03-31');
 
 -- --------------------------------------------------------
 
@@ -201,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `farmer` (
   `date_created` date NOT NULL,
   `new_user_status` int(11) DEFAULT NULL,
   PRIMARY KEY (`farmer_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `farmer`
@@ -209,8 +211,7 @@ CREATE TABLE IF NOT EXISTS `farmer` (
 
 INSERT INTO `farmer` (`farmer_id`, `firstname`, `lastname`, `farm_address`, `gender`, `phone`, `email`, `password`, `date_created`, `new_user_status`) VALUES
 (1, 'sina', 'soneye', '6, ikosi', 'male', '89w389', 'advancoplanet@gmail.com', 'db6a25a3cc9ce469ddedf1e12f07f69b', '2021-02-14', NULL),
-(9, 'afeez', 'dosu', 'nigeria', 'Male', '3232323', 'afeez@gmail.com', '631f5438242f3abf1228dc6e78b164ce', '2021-03-10', 1),
-(8, 'afeez', 'dosu', 'nigeria', 'Male', '98912891', 'afeez@gmail.com', 'afeez', '2021-03-10', NULL),
+(8, 'afeez', 'dosu', 'nigeria', 'Male', '98912891', 'afeez@gmail.com', '631f5438242f3abf1228dc6e78b164ce', '2021-03-10', NULL),
 (7, 'Soneye', 'Oluwasina', 'saaad', 'Male', '8487008706', 'advancoplanet@gmail.com', 'richiehortiz', '2021-02-21', NULL);
 
 -- --------------------------------------------------------
@@ -277,7 +278,7 @@ CREATE TABLE IF NOT EXISTS `survey_answers` (
   `ans_2` int(11) DEFAULT NULL,
   `date_answered` datetime NOT NULL,
   PRIMARY KEY (`answer_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `survey_answers`
@@ -302,7 +303,8 @@ INSERT INTO `survey_answers` (`answer_id`, `farmer_id`, `ans_1`, `ans_2`, `date_
 (18, 1, 2, 4, '2021-03-28 14:15:06'),
 (17, 1, 2, 1, '2021-03-28 14:02:34'),
 (24, 1, NULL, NULL, '2021-03-28 18:38:04'),
-(25, 1, NULL, NULL, '2021-03-28 18:40:08');
+(25, 1, NULL, NULL, '2021-03-28 18:40:08'),
+(26, 10, 2, 1, '2021-03-31 19:03:24');
 
 -- --------------------------------------------------------
 
@@ -319,7 +321,7 @@ CREATE TABLE IF NOT EXISTS `survey_practising_farmer_answers` (
   `ans_3` int(11) NOT NULL,
   `date_answered` datetime NOT NULL,
   PRIMARY KEY (`answer_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `survey_practising_farmer_answers`
@@ -330,7 +332,8 @@ INSERT INTO `survey_practising_farmer_answers` (`answer_id`, `farmer_id`, `ans_1
 (2, 1, 2, 1, 0, '2021-03-28 15:57:31'),
 (3, 1, 2, 1, 0, '2021-03-28 16:15:47'),
 (4, 1, 2, 1, 0, '2021-03-28 16:43:37'),
-(5, 1, 2, 1, 0, '2021-03-28 17:18:15');
+(5, 1, 2, 1, 0, '2021-03-28 17:18:15'),
+(6, 8, 2, 1, 1, '2021-03-31 19:20:17');
 
 -- --------------------------------------------------------
 
@@ -346,14 +349,16 @@ CREATE TABLE IF NOT EXISTS `survey_solutions` (
   `stage` int(11) NOT NULL,
   `solution` longtext NOT NULL,
   PRIMARY KEY (`solution_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `survey_solutions`
 --
 
 INSERT INTO `survey_solutions` (`solution_id`, `crop_id`, `cassava_type`, `stage`, `solution`) VALUES
-(1, 2, 1, 0, 'sdddddddddd');
+(1, 2, 1, 0, 'sdddddddddd'),
+(3, 2, 1, 1, '<p>dhbjkaaklsj</p>\r\n'),
+(4, 2, 1, 2, '<p>aodlanksldjapdjhk js</p>\r\n');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

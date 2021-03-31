@@ -1,15 +1,15 @@
 <?php
 
-class Farmer extends DB
+class Administrator extends DB
 {
-    public function login ($username, $password){
+    public function administrator_login ($username, $password){
         $arr =  [$username, md5($password)];
-        $query = PARENT::queryStatement("SELECT * FROM farmer WHERE email = ? AND password = ?", $arr);
+        $query = PARENT::queryStatement("SELECT * FROM administrator WHERE admin_username = ? AND admin_password = ?", $arr);
         if(Parent::queryRowCount() > 0){
             $user_details = PARENT::f_one();
-            $_SESSION['farmer_id'] = $user_details->farmer_id;
-            $_SESSION['email'] = $user_details->email;
-            header("location:survey.php");
+            $_SESSION['admin_id'] = $user_details->admin_id;
+            $_SESSION['admin_username'] = $user_details->admin_username;
+            header("location: dashboard.php");
             // if($user_details->new_user_status == NULL){
             //     header("location:survey.php");
             // }
@@ -28,27 +28,6 @@ class Farmer extends DB
         $arr = [$fname,$lname,$address,$gender,$phone,$email, md5($password),$date = date('Y-m-d')];
         
         $query = PARENT::queryStatement("INSERT INTO farmer(`firstname`, `lastname`, `farm_address`, `gender`, `phone`, `email`, `password`, `date_created`) VALUES (?,?,?,?,?,?,?,?)", $arr);
-        return ($query)? true:false;
-    }
-
-    public function all_farmers (){
-        $arr = [];
-        
-        $query = PARENT::queryStatement("SELECT * FROM farmer ORDER BY farmer_id DESC", $arr);
-        return PARENT::fALL();
-    }
-
-    public function single_farmer ($farmer_id){
-        $arr = [$farmer_id];
-        
-        $query = PARENT::queryStatement("SELECT * FROM farmer WHERE farmer_id= ?", $arr);
-        return PARENT::f_one();
-    }
-
-    public function delete_farmer ($farmer_id){
-        $arr = [$farmer_id];
-        
-        $query = PARENT::queryStatement("DELETE FROM farmer WHERE farmer_id = ?", $arr);
         return ($query)? true:false;
     }
 

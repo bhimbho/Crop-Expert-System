@@ -23,17 +23,37 @@ include "includes/sidebar.php";
     <div class="content">                 
         <div class="block block-rounded">
             <div class="block-content">
-                <form action="be_forms_editors.html" method="POST" onsubmit="return false;">
+            <?php
+                if(isset($_POST['add_blog'])){
+                    $response = DB::fileUploadImage('../images/blog_images/','file');
+                    if(in_array($response, ["Supply Parameter [1] with a valid POST filename", "File too Large", "File Unknown", "Sorry Upload Image files | File Uploaded wasnt an image", "File not uploaded"])){
+                        echo '<div class="alert alert-danger">'.$response.'</div>';
+                    }
+                    else{
+                        if($content->store_content($_POST['title'],$_POST['content'],$response)){
+                            echo '<div class="alert alert-success">Content Created Successfully</div>';
+                        }
+                        else{
+                            echo '<div class="alert alert-danger">Content Cannot be created</div>';
+                        }
+                    }
+                }
+            ?>
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>Blog Image</label>
+                        <input type="file" name="file" class="form-control">
+                    </div>
                     <div class="form-group">
                         <label>Blog Title</label>
-                        <input type="text" name="" class="form-control" placeholder="Blog title">
+                        <input type="text" name="title" class="form-control" placeholder="Blog title">
                     </div>
                     <div class="form-group">
                         <label>Blog Content</label>
-                        <textarea id="js-ckeditor" name="ckeditor"></textarea>
+                        <textarea id="js-ckeditor" name="content"></textarea>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-info btn-block">Add Blog</button>
+                        <button class="btn btn-info btn-block" name="add_blog">Add Blog</button>
                     </div>
                 </form>
             </div>

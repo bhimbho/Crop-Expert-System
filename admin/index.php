@@ -1,3 +1,8 @@
+<?php
+session_start();
+include '../core.php';
+$admin = new Administrator;
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -41,17 +46,29 @@
                     </div>
                     <div class="row no-gutters justify-content-center">
                         <div class="col-sm-10">
-                            <form class="js-validation-signin" action="dashboard.php" method="POST">
+                            <form class="js-validation-signin" action="" method="POST">
+                            <?php
+                                if (isset($_POST['submit'])) {
+                                    $email = $_POST['username'];
+                                    $password = $_POST['password'];
+                                    if($admin->administrator_login($email, $password)){
+                                        // header('location:survey.php');
+                                    }
+                                    else{
+                                        echo "<div class='alert alert-success rounded-0'>Login Failed</div>";
+                                    }
+                                }
+                            ?>
                                 <div class="py-3">
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-lg form-control-alt" id="login-username" name="login-username" placeholder="Username">
+                                        <input type="text" class="form-control form-control-lg form-control-alt" id="login-username" name="username" placeholder="Username">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control form-control-lg form-control-alt" id="login-password" name="login-password" placeholder="Password">
+                                        <input type="password" class="form-control form-control-lg form-control-alt" id="login-password" name="password" placeholder="Password">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-block btn-hero-lg btn-hero-primary" style="background: #0D1C1E; border: none">
+                                    <button type="submit" class="btn btn-block btn-hero-lg btn-hero-primary" style="background: #0D1C1E; border: none" name="submit">
                                         <i class="fa fa-fw fa-sign-in-alt mr-1"></i> Sign In
                                     </button>
                                     <p class="mt-3 mb-0 d-lg-flex justify-content-lg-between">

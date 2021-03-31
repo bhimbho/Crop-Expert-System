@@ -32,17 +32,23 @@ include "includes/sidebar.php";
                             <th>S/N</th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Phone</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                    <?php
+                    $count =1;
+                        $all_farmers = $farmer->all_farmers();
+                        foreach ($all_farmers as $all_farmers) {?>
                         <tr>
-                            <td>1</td>
-                            <td>Jose Parker</td>
-                            <td>@example.com</td>
-                            <td><a class="btn btn-info" href="user-details.php">View Details</a> <a href="" class="btn btn-warning">Ban</a> <a class="btn btn-danger" href="">Delete</a></td>
+                            <td><?= $count++ ?></td>
+                            <td><?= $all_farmers->firstname.' '.$all_farmers->lastname?></td>
+                            <td><?= $all_farmers->email ?></td>
+                            <td><?= $all_farmers->phone ?></td>
+                            <td><a class="btn btn-info" href="user-details.php?farmer_id=<?= $all_farmers->farmer_id?>">View Details</a><a href="api/delete-farmer.php?farmer_id=<?= $all_farmers->farmer_id ?>" class="btn btn-danger" href="">Delete</a></td>
                         </tr>
-                        
+                        <?php }?>
                     </tbody>
                 </table>
             </div>

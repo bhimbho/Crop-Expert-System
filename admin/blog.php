@@ -31,20 +31,33 @@ include "includes/sidebar.php";
         </div>
         <div class="block block-rounded">
             <div class="block-content block-content-full">
+            <?php
+                include "error.php";
+            ?>
                 <table class="table table-bordered table-striped js-dataTable-full" style="width: 100%">
                     <thead>
                         <tr>
                             <th>S/N</th>
                             <th>Blog Title</th>
+                            <th>Blog Image</th>
+                            <th>Poster</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>Jose Parker</td>
-                            <td><a class="btn btn-info" href="view-blog.php">View</a> <a class="btn btn-danger" href="">Delete</a></td>
-                        </tr>
+                        <?php
+                        $count = 1;
+                        $all_content = $content->get_contents();
+                        if(is_array($all_content)){
+                            foreach ($all_content as $all_content) {?>
+                                <td><?= $count++ ?></td>
+                                <td><?= $all_content->title ?></td>
+                                <td><img src="../images/blog_images/<?= $all_content->content_image ?>" height="50px" alt=""></td>
+                                <td><?= $all_content->admin_username ?></td>
+                                <td><a class="btn btn-info" href="view-blog.php?blog_id=<?= $all_content->content_id?>">View</a> <a class="btn btn-danger" href="api/delete-blog.php?blog_id=<?= $all_content->content_id?>">Delete</a></td>
+                            </tr>
+                        <?php }}?>
                     </tbody>
                 </table>
             </div>

@@ -1,9 +1,18 @@
+<?php
+session_start();
+require_once '../core.php';
+$admin = new Administrator;
+$content = new Content;
+$survey = new Survey;
+$farmer = new Farmer;
+$disease = new Disease;
+?>
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Dashmix - Bootstrap 4 Admin Template &amp; UI Framework</title>
+    <title>Expert System | Administrator</title>
     <meta name="description" content="Dashmix - Bootstrap 4 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
     <meta name="author" content="pixelcave">
     <meta name="robots" content="noindex, nofollow">
@@ -478,7 +487,7 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="page-header-user-dropdown">
                     <div class="p-2">
-                        <a class="dropdown-item" href="op_auth_signin.html">
+                        <a class="dropdown-item" href="logout.php">
                             <i class="far fa-fw fa-arrow-alt-circle-left mr-1"></i> Sign Out
                         </a>
                     </div>

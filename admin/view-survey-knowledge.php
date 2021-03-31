@@ -19,15 +19,12 @@ include "includes/sidebar.php";
     <div class="content">
         <div class="block block-rounded">
             <div class="block-content block-content-full">
-                <h5>User Details</h5>
+                <h5>Knowledge Description</h5>
                 <?php
-                    $farmer_details = $farmer->single_farmer($_GET['farmer_id']);
+                    $solution_details = $survey->get_single_survey_knowledge($_GET['knowledge_id']);
                 ?>
-                <p>Fullname: <?= $farmer_details->firstname.' '.$farmer_details->lastname ?></p>
-                <p>Email: <?= $farmer_details->email ?></p>
-                <p>Phone: <?= $farmer_details->phone ?></p>
-                <p>Farm Address: <?= $farmer_details->farm_address ?></p>
-                <p>Gender: <?= $farmer_details->gender ?></p>
+                <p>Fullname: <?= $solution_details->solution ?></p>
+                
             </div>
         </div>
     </div>

@@ -8,6 +8,40 @@ class Survey extends DB
 
     }
 
+    public function get_all_survey_knowledge(){
+        $arr =  [];
+        $query = PARENT::queryStatement("SELECT * FROM `survey_solutions` LEFT JOIN crop ON survey_solutions.crop_id = crop.crop_id LEFT JOIN cassava_varieties ON survey_solutions.cassava_type = cassava_varieties.cassava_id", $arr);
+        return PARENT::fALL(); //fetch all
+
+    }
+
+    public function get_single_survey_knowledge($knowledge_id){
+        $arr =  [$knowledge_id];
+        $query = PARENT::queryStatement("SELECT * FROM `survey_solutions` WHERE solution_id = ?", $arr);
+        return PARENT::f_one(); //fetch all
+
+    }
+
+    public function save_inference ($crop,$cassava,$stage,$knowledge){
+        $query_key = [$crop,$cassava,$stage];
+        $arr = [$crop,$cassava,$stage,$knowledge];
+        $query = PARENT::queryStatement("SELECT * FROM `survey_solutions` WHERE crop_id = ? AND cassava_type=? AND stage=?", $query_key);
+        if(PARENT::queryRowCount() == 0){ //fetch all
+            $query = PARENT::queryStatement("INSERT INTO survey_solutions(`crop_id`, `cassava_type`, `stage`,`solution`) VALUES (?,?,?,?)", $arr);
+            ($query)? $_SESSION['msg']="Inference Saved": $_SESSION['err']="Inference cannot Saved";
+        }
+        else{
+            $_SESSION['err']="Inference already exist";
+        }
+    }
+
+    public function delete_inference ($knowledge_id){
+        $arr = [$knowledge_id];
+        
+        $query = PARENT::queryStatement("DELETE FROM survey_solutions WHERE solution_id = ?", $arr);
+        return ($query)? true:false;
+    }
+
     public function get_all_crops(){
         $arr =  [];
         $query = PARENT::queryStatement("SELECT * FROM `crop`", $arr);

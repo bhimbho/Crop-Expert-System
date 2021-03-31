@@ -38,7 +38,7 @@ DB::check();
 				<h3>Harvesting/ Post-Planting Steps</h3><hr>
                 <div><?= (isset($post->solution))?$pre->solution: "Inference Cannot be generated at the moment" ?></div>
                 <a class="btn btn-dark rounded-0 btn-block mb-2">Would you like to proceed to Cassava Disease Diagnosis?</a>
-                <a href="expert-system.php" class="btn btn-success rounded-0">Yes</a>
+                <a href="disease_list.php" class="btn btn-success rounded-0">Yes</a>
                 <a href="survey.php" class="btn btn-warning rounded-0 text-white">No</a>
                 <div class="col-md-6 d-flex align-self-end justify-content-end float-right p-0 mt-5">
                     <button class="btn btn-warning rounded-0 w-25 previous-btn-2">Previous</button>

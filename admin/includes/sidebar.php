@@ -44,6 +44,18 @@
                     </a>
                 </li>
                 <li class="nav-main-item">
+                    <a class="nav-main-link" href="survey_knowledge_base.php">
+                        <i class="nav-main-link-icon fa fa-location-arrow"></i>
+                        <span class="nav-main-link-name">Survey Knowledge Populator</span>
+                    </a>
+                </li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link" href="disease_knowledge_base.php">
+                        <i class="nav-main-link-icon fa fa-location-arrow"></i>
+                        <span class="nav-main-link-name">Disease Inference Engine Populator</span>
+                    </a>
+                </li>
+                <li class="nav-main-item">
                     <a class="nav-main-link" href="diagnosis.php">
                         <i class="nav-main-link-icon fa fa-location-arrow"></i>
                         <span class="nav-main-link-name">Diagnosis</span>
