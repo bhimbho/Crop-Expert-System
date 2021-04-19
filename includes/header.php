@@ -5,6 +5,7 @@ $content = new Content;
 $survey = new Survey;
 $farmer = new Farmer;
 $disease = new Disease;
+$notes = new Notes;
 ?>
 <!DOCTYPE html>
 <html>
@@ -37,7 +38,7 @@ $disease = new Disease;
 										<a class="nav-link text-white" href="blogs.php">Expert Corner</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link text-white" href="diagnosis.php">Diagnosis</a>
+										<!-- <a class="nav-link text-white" href="diagnosis.php">Diagnosis</a> -->
 									</li>
 									<?php
 										if(isset($_SESSION['farmer_id'])){?>

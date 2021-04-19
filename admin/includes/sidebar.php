@@ -50,21 +50,33 @@
                     </a>
                 </li>
                 <li class="nav-main-item">
+                    <a class="nav-main-link" href="survey_notes.php">
+                        <i class="nav-main-link-icon fa fa-edit"></i>
+                        <span class="nav-main-link-name">Survey Notes</span>
+                    </a>
+                </li>
+                <li class="nav-main-item">
                     <a class="nav-main-link" href="disease_knowledge_base.php">
+                        <i class="nav-main-link-icon fa fa-location-arrow"></i>
+                        <span class="nav-main-link-name">Disease Question Engine Populator</span>
+                    </a>
+                </li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link" href="disease_inference.php">
                         <i class="nav-main-link-icon fa fa-location-arrow"></i>
                         <span class="nav-main-link-name">Disease Inference Engine Populator</span>
                     </a>
                 </li>
-                <li class="nav-main-item">
+                <!-- <li class="nav-main-item">
                     <a class="nav-main-link" href="diagnosis.php">
                         <i class="nav-main-link-icon fa fa-location-arrow"></i>
                         <span class="nav-main-link-name">Diagnosis</span>
                     </a>
-                </li>
+                </li> -->
                 <li class="nav-main-item">
                     <a class="nav-main-link" href="blog.php">
                         <i class="nav-main-link-icon fa fa-location-arrow"></i>
-                        <span class="nav-main-link-name">Blog</span>
+                        <span class="nav-main-link-name">Expert Corner</span>
                     </a>
                 </li>
                 <!-- <li class="nav-main-item">

@@ -19,10 +19,13 @@ include "includes/sidebar.php";
     <div class="content">
         <div class="block block-rounded">
             <div class="block-content block-content-full">
-                <h5>Knowledge Description</h5>
-                <?php
+            <?php
                     $solution_details = $survey->get_single_survey_knowledge($_GET['knowledge_id']);
-                ?>
+            ?>
+            <a class="btn btn-danger" href="edit_survey_knowledge_base.php?solution_id=<?= $solution_details->solution_id ?>">Edit</a>
+            
+                <h5>Knowledge Description</h5>
+               
                 <p>Fullname: <?= $solution_details->solution ?></p>
                 
             </div>

@@ -22,7 +22,7 @@
 <script src="assets/js/plugins/datatables/buttons/buttons.html5.min.js"></script>
 <script src="assets/js/plugins/datatables/buttons/buttons.flash.min.js"></script>
 <script src="assets/js/plugins/datatables/buttons/buttons.colVis.min.js"></script>
-<script src="assets/js/plugins/ckeditor/ckeditor.js"></script>
+<script src="assets/ckeditor/ckeditor.js"></script>
 
 
 <!-- Page JS Code -->
@@ -33,6 +33,9 @@
 
 <!-- Page JS Helpers (jQuery Sparkline plugin) -->
 <script>jQuery(function () { Dashmix.helpers('sparkline'); });</script>
-<script>jQuery(function () { Dashmix.helpers(['ckeditor']); });</script>
+<!-- <script>jQuery(function () { Dashmix.helpers(['ckeditor5']); });</script> -->
+<script>
+    CKEDITOR.replace( 'editor' );
+</script>
 </body>
 </html>

@@ -38,6 +38,13 @@ class Farmer extends DB
         return PARENT::fALL();
     }
 
+    public function all_farmers_count (){
+        $arr = [];
+        
+        $query = PARENT::queryStatement("SELECT * FROM farmer ORDER BY farmer_id DESC", $arr);
+        return PARENT::queryRowCount();
+    }
+
     public function single_farmer ($farmer_id){
         $arr = [$farmer_id];
         

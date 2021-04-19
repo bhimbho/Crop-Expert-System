@@ -50,7 +50,7 @@ include "includes/sidebar.php";
                     </div>
                     <div class="form-group">
                         <label>Blog Content</label>
-                        <textarea id="js-ckeditor" name="content"></textarea>
+                        <textarea id="editor" name="content"></textarea>
                     </div>
                     <div class="form-group">
                         <button class="btn btn-info btn-block" name="add_blog">Add Blog</button>

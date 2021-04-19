@@ -29,7 +29,7 @@ include "includes/sidebar.php";
                                     Users
                                 </p>
                                 <p class="font-size-h3 mb-0">
-                                    680
+                                    <?= $farmer->all_farmers_count()?>
                                 </p>
                             </div>
                             <div>
@@ -57,10 +57,10 @@ include "includes/sidebar.php";
                         <div class="d-flex align-items-center justify-content-between p-1">
                             <div class="mr-3">
                                 <p class="text-muted mb-0">
-                                    Diagnosis
+                                    Survey Answers
                                 </p>
                                 <p class="font-size-h3 mb-0">
-                                    32
+                                <?= $survey->get_all_survery_answer_count()?>
                                 </p>
                             </div>
                             <div>
@@ -88,10 +88,11 @@ include "includes/sidebar.php";
                         <div class="d-flex align-items-center justify-content-between p-1">
                             <div class="mr-3">
                                 <p class="text-muted mb-0">
-                                    Results
+                                    Expert Content
                                 </p>
                                 <p class="font-size-h3 mb-0">
-                                    19
+                                    
+                                <?= $content->get_contents_count()?>
                                 </p>
                             </div>
                             <div>

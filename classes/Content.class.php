@@ -9,6 +9,13 @@ class Content  extends DB
 
     }
 
+    public function get_contents_count (){
+        $arr =  [];
+        $query = PARENT::queryStatement("SELECT * FROM `content`", $arr);
+        return PARENT::queryRowCount(); //fetch all
+
+    }
+
     public function store_content ($title,$content,$image){
         $arr = [$title,$content,$image,$_SESSION['admin_id'],$date = date('Y-m-d')];
         

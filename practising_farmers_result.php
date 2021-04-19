@@ -21,14 +21,19 @@ DB::check();
             <div class="col-md-12">
                 <h3>
                     <?php
-                    if($pre->stage == 0){
-                        echo "Pre-planting Analysis";
+                    if(isset($pre->stage)){
+                        if($pre->stage == 0){
+                            echo "Pre-planting Analysis";
+                        }
+                        else if($pre->stage == 1){
+                            echo "Planting Analysis";
+                        }
+                        elseif($pre->stage == 2){
+                            echo "Post-planting Analysis";
+                        }
                     }
-                    else if($pre->stage == 1){
-                        echo "Planting Analysis";
-                    }
-                    elseif($pre->stage == 2){
-                        echo "Post-planting Analysis";
+                    else{
+                        echo "Not inference found";
                     }
                     ?>
                 </h3><hr>

@@ -35,6 +35,8 @@ class Survey extends DB
         }
     }
 
+    
+
     public function delete_inference ($knowledge_id){
         $arr = [$knowledge_id];
         
@@ -51,7 +53,7 @@ class Survey extends DB
 
     public function get_all_cassava_varieties(){
         $arr =  [];
-        $query = PARENT::queryStatement("SELECT * FROM `cassava_varieties`", $arr);
+        $query = PARENT::queryStatement("SELECT * FROM `cassava_varieties` ORDER BY RAND(cassava_id)", $arr);
         return PARENT::fALL(); //fetch all
 
     }
@@ -83,6 +85,13 @@ class Survey extends DB
         $arr =  [$_SESSION['farmer_id']];
         $query = PARENT::queryStatement("SELECT * FROM `survey_answers` WHERE farmer_id = ? ORDER BY answer_id DESC", $arr);
         return PARENT::f_one(); //fetch all
+
+    }
+
+    public function get_all_survery_answer_count(){
+        $arr =  [];
+        $query = PARENT::queryStatement("SELECT * FROM `survey_answers`", $arr);
+        return PARENT::queryRowCount(); //fetch all
 
     }
 
@@ -162,5 +171,12 @@ class Survey extends DB
 
         return $answer;
 
+    }
+
+    public function update_inference ($solution,$solution_id){
+        $arr = [$solution,$solution_id];
+        
+        $query = PARENT::queryStatement("UPDATE survey_solutions SET solution=? WHERE solution_id=?", $arr);
+        return ($query)? true:false;
     }
 }

@@ -32,7 +32,7 @@ include "includes/sidebar.php";
         <div class="block block-rounded">
             <div class="block-content block-content-full">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-12">
                     <?php
                         if(isset($_POST['add'])){
                             $crop = $_POST['crop'];
@@ -77,14 +77,14 @@ include "includes/sidebar.php";
                         </div>
                         <div class="form-group">
                             <label>Inference/Knowledge</label>
-                            <textarea type="text" name="knowledge" id="js-ckeditor" class="form-control" placeholder="Blog title"></textarea>
+                            <textarea type="text" name="knowledge" id="editor" class="form-control" placeholder="Blog title"></textarea>
                         </div>
                         <div class="form-group">
                             <button class="btn btn-info btn-block" name="add">Add Inference</button>
                         </div>
                     </form>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                     <?php
                 include "error.php";
             ?>
